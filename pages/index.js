@@ -1,8 +1,7 @@
-import Head from 'next/head'
-
-export default function Home() {
+const Home = () => {
   return (
     <div className="container">
+      Main Page
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -151,3 +150,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home;
