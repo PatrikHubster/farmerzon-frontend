@@ -1,4 +1,4 @@
-import './Amount.css';
+import styles from './Amount.module.css';
 
 const Amount = (props) => {
   let style = {
@@ -10,7 +10,7 @@ const Amount = (props) => {
     style.color = 'orange';
   }
   return (
-    <div className="price">
+    <div className={styles.price}>
       <b style={style}> {props.amount <= 0 ? "Nicht vorhanden" : "Noch " + props.amount + " Stück im Lager."}</b>
     </div>);
 }

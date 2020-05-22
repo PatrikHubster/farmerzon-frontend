@@ -3,17 +3,17 @@ import Description from './Description/Description';
 import Name from './Name/Name';
 import Price from './Price/Price';
 import Size from './Size/Size';
-import './Product.css';
+import styles from  './Product.module.css';
 
-const Product = (props) => (
+export const Product = (props) => (
   <div className="card">
-    <div className="container">
+    <div className={styles.container}>
       <Name name={props.name} />
       <Description description={props.description} />
-      <div className="card-footer">
-        <div className="parent">
-          <Price price={props.price} className="inline-block" />
-          <Amount amount={props.amount} className="inline-block" />
+      <div className={styles.cardFooter}>
+        <div className={styles.parent}>
+          <Price price={props.price} className={styles.inlineBlock} />
+          <Amount amount={props.amount} className={styles.inlineBlock} />
         </div>
         <Size size={props.size} unit={props.unit} />
       </div>
@@ -21,4 +21,3 @@ const Product = (props) => (
   </div>
 );
 
-export default Product;
