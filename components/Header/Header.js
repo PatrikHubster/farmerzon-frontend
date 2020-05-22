@@ -1,10 +1,10 @@
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
-import './Header.css'
+import styles from './Header.module.css'
 
 const Header = (props) => {
   return (
-    <Navbar bg="dark" variant="dark" className="header">
+    <Navbar bg="dark" variant="dark" className={styles.header}>
       <Navbar.Brand>
         <img
           src="/farmerzon.svg"
