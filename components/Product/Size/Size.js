@@ -5,7 +5,7 @@ const Size = (props) => {
   return (
     <div style={style}>
       {props.size} {props.unit} pro Stück
-          </div>
+    </div>
   );
 }
 
