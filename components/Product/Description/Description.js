@@ -1,8 +1,8 @@
-import './Description.css';
+import styles from './Description.module.css';
 
 const Description = (props) => (
   <div className="description">
-    <textarea readOnly className="desc" value={props.description} />
+    <textarea readOnly className={styles.desc} value={props.description} />
   </div>
 )
 
