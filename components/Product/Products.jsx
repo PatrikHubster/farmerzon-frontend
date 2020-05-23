@@ -1,4 +1,5 @@
 import { Product } from './Product';
+import styles from './Products.module.css';
 
 export const Products = (props) => (
   <div>
@@ -10,6 +11,7 @@ export const Products = (props) => (
         size={product.size}
         unit={product.unit}
         key={product.id}
+        className={styles.Product}
       />
     )}
   </div>
