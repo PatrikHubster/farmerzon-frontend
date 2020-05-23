@@ -1,5 +1,5 @@
 import styles from './Card.module.css';
-import { Card as BCard, Button, Badge } from 'react-bootstrap';
+import { Card as BCard } from 'react-bootstrap';
 
 /**
  * image -> sets Image
@@ -9,7 +9,7 @@ import { Card as BCard, Button, Badge } from 'react-bootstrap';
  */
 const Card = (props) => (
   <BCard className={styles.card} >
-    <BCard.Img variant="top" src={props.image ? props.image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"} />
+    <BCard.Img variant="top" src={props.image ? props.image : ''} />
     <BCard.Body>
       <BCard.Title>{props.title}</BCard.Title>
       <BCard.Text className={styles.cardText}>
