@@ -1,7 +1,7 @@
 import { Layout } from '../components/Layout/Layout';
 
 const Register = () => (
-    <Layout>
+    <Layout title="Registrieren">
         Register
     </Layout>
 );

@@ -51,7 +51,7 @@ const products = [
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout title="Farmerzon">
       Main Page
       <Products articles={products} className="container" />
     </Layout>

@@ -1,7 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 
 const AddProduct = () => (
-    <Layout>
+    <Layout title="Produkt hinzufügen">
       Produkt hinzufügen (Farmer)
     </Layout>
 );

@@ -1,7 +1,9 @@
+import { Layout } from '../components/Layout/Layout';
+
 const Login = () => (
-    <div>
+    <Layout title="Login">
         Login
-    </div>
+    </Layout>
 );
 
 export default Login;
