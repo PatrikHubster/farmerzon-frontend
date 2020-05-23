@@ -1,25 +1,27 @@
 import Carousel from 'react-bootstrap/Carousel';
-import { ItemCarouselItem } from './ItemCarouselItem';
-import { useState } from 'react';
+import { CarouselItem } from 'react-bootstrap';
 
 /**
- * data -> [{image, title, desc}, ...]
+ * data -> [{image, title, desc, id}, ...]
+ * width -> image width
+ * height -> image height
  */
 export const ItemCarousel = ({ data }) => {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} style={{ width: "750px" }}>
-      {data.map(data => <ItemCarouselItem
-        image={data.image}
-        title={data.name}
-        desc={data.description}
-        key={data.id}
-      />)}
+    <Carousel>
+      {data.map(d => (
+        <CarouselItem key={d.id}>
+          <img
+            className="d-block w-100"
+            src={d.image}
+            alt="slide"
+          />
+          <Carousel.Caption>
+            <h3>{d.title}</h3>
+            <p>{d.desc}</p>
+          </Carousel.Caption>
+        </CarouselItem>
+      ))}
     </Carousel>
   );
 };
