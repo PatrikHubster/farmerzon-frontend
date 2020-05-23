@@ -1,7 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 
 const Orders = () => (
-    <Layout>
+    <Layout title="Bestellungen">
        Bestellungen
     </Layout>
 )

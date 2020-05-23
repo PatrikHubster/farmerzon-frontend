@@ -1,7 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 
 const AddOrder = () => (
-    <Layout>
+    <Layout title="Bestellen">
       Bestellungen anzeigen
     </Layout>
 )

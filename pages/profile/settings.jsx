@@ -1,7 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 
 const Settings =() => (
-    <Layout>
+    <Layout title="Einstellungen">
         Einstellungen
     </Layout>
 )

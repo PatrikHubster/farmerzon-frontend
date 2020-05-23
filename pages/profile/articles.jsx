@@ -1,7 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 
 const Articles = () => (
-    <Layout>
+    <Layout title="Meine Artikel">
        Artikel
     </Layout>
 )
