@@ -1,7 +1,9 @@
+import { Layout } from '../../components/Layout/Layout';
+
 const AddOrder = () => (
-    <div>
+    <Layout>
       Bestellungen anzeigen
-    </div>
+    </Layout>
 )
 
 export default AddOrder;

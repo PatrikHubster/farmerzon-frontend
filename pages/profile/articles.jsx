@@ -1,7 +1,9 @@
+import { Layout } from '../../components/Layout/Layout';
+
 const Articles = () => (
-    <div>
+    <Layout>
        Artikel
-    </div>
+    </Layout>
 )
 
 export default Articles;

@@ -1,7 +1,9 @@
+import { Layout } from '../components/Layout/Layout';
+
 const Register = () => (
-    <div>
+    <Layout>
         Register
-    </div>
+    </Layout>
 );
 
 export default Register;
