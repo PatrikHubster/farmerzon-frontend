@@ -1,7 +1,9 @@
+import { Layout } from '../../components/Layout/Layout';
+
 const AddProduct = () => (
-    <div>
+    <Layout>
       Produkt hinzufügen (Farmer)
-    </div>
+    </Layout>
 );
 
 export default AddProduct;

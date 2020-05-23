@@ -1,7 +1,9 @@
+import { Layout } from '../../components/Layout/Layout';
+
 const Orders = () => (
-    <div>
+    <Layout>
        Bestellungen
-    </div>
+    </Layout>
 )
 
 export default Orders;

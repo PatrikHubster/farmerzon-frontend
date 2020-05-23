@@ -1,7 +1,9 @@
+import { Layout } from '../../components/Layout/Layout';
+
 const Settings =() => (
-    <div>
+    <Layout>
         Einstellungen
-    </div>
+    </Layout>
 )
 
 export default Settings;
