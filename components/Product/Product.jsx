@@ -4,10 +4,10 @@ import Name from './Name/Name';
 import Price from './Price/Price';
 import Size from './Size/Size';
 import styles from  './Product.module.css';
+import Card from '../Card/Card';
 
 export const Product = (props) => (
-  <div className="card">
-    <div className={styles.container}>
+  <Card>
       <Name name={props.name} />
       <Description description={props.description} />
       <div className={styles.cardFooter}>
@@ -17,7 +17,6 @@ export const Product = (props) => (
         </div>
         <Size size={props.size} unit={props.unit} />
       </div>
-    </div>
-  </div>
+  </Card>
 );
 
