@@ -11,6 +11,7 @@ export const Products = (props) => (
         size={product.size}
         unit={product.unit}
         key={product.id}
+        image={product.image}
       />
     )}
   </div>

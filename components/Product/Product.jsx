@@ -6,7 +6,7 @@ import Card from '../Card/Card';
 import { Button } from 'react-bootstrap';
 
 export const Product = (props) => (
-  <Card title={props.name} text={props.description}>
+  <Card title={props.name} text={props.description} image={props.image}>
     <div className={styles.cardFooter}>
       <div className={styles.parent}>
         <Price price={props.price} className={styles.inlineBlock} />
