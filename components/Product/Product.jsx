@@ -2,7 +2,7 @@ import Amount from './Amount/Amount';
 import Price from './Price/Price';
 import Size from './Size/Size';
 import styles from './Product.module.css';
-import Card from '../Card/Card';
+import { Card } from '../Card/Card';
 import { Button } from 'react-bootstrap';
 
 export const Product = (props) => (
