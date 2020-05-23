@@ -2,7 +2,7 @@ import { Product } from './Product';
 import styles from './Products.module.css';
 
 export const Products = (props) => (
-  <div>
+  <div className={styles.products}>
     {props.articles.map(product =>
       <Product name={product.name}
         price={product.price}
@@ -11,7 +11,6 @@ export const Products = (props) => (
         size={product.size}
         unit={product.unit}
         key={product.id}
-        className={styles.Product}
       />
     )}
   </div>

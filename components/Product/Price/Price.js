@@ -1,6 +1,8 @@
+import styles from './Price.module.css';
+
 const Price = (props) => (
   <div>
-    <b>{props.price} €</b>
+    <b className={styles.price}>{props.price} €</b>
   </div>
 )
 
