@@ -5,3 +5,16 @@
     flex-flow: row wrap;
     align: center;
 }
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.cardFooter {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
