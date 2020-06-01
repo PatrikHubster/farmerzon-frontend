@@ -153,6 +153,11 @@ export const Layout = (props) => (
             sans-serif;
         }
 
+        .imageInCarousel {
+          height: 70vh;
+          object-fit: contain;
+        }
+
         * {
           box-sizing: border-box;
         }
