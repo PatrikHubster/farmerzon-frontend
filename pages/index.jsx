@@ -105,10 +105,31 @@ const products = [
   },
 ];
 
+const carouselItems = [
+  {
+    id: 1,
+    title: 'Diverses',
+    desc: 'Das ist bereits eine wunderbare Beschreibung',
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
+  },
+  {
+    id: 3,
+    title: 'Diverses',
+    desc: 'Hier entsteht bald eine wunderbare Beschreibung',
+    image: "https://covid19.lacounty.gov/wp-content/uploads/GettyImages-1128687123-1024x683.jpg",
+  },
+  {
+    id: 2,
+    image: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"
+  },
+]
+
 const Home = () => {
   return (
     <Layout title="Farmerzon">
-      <ItemCarousel data={products.slice(0, 3)} />
+      <div>
+        <ItemCarousel data={carouselItems} />
+      </div>
       <Products articles={products} />
     </Layout>
   )
