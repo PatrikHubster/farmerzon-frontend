@@ -2,6 +2,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+To install yarn under macOS use:
+
+```console
+user@computer:~$ brew install yarn
+```
+
+How to craete empty nextJS web application:
+
+```console
+user@computer:~$ yarn create next-app
+```
+
 First, run the development server:
 
 ```bash
