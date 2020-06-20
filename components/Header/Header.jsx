@@ -1,6 +1,6 @@
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
-export const Header = (props) => (
+export const Header = () => (
   <Navbar bg="dark" sticky="top" variant="dark">
     <Navbar.Brand href="/">Farmerzon</Navbar.Brand>
     <Nav className="mr-auto">

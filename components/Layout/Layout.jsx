@@ -1,17 +1,17 @@
 import { Header } from '../Header/Header';
 import Head from 'next/head';
 
-export const Layout = (props) => (
+export const Layout = ({ title, children }) => (
   <div>
     <Head>
-      <title>{props.title}</title>
+      <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel="icon" href="/farmerzon.svg" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
     </Head>
     <Header />
-    {props.children}
+    {children}
     <style jsx>{`
         .container {
           min-height: 100vh;

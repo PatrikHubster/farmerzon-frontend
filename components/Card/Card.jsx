@@ -7,15 +7,15 @@ import { Card as BCard } from 'react-bootstrap';
  * text  -> e.g. description
  * children -> will be rendered under description
  */
-export const Card = (props) => (
+export const Card = ({ image, title, text, children }) => (
   <BCard className={styles.card} >
-    <BCard.Img variant="top" src={props.image ? props.image : ''} />
+    <BCard.Img variant="top" src={image ? image : ''} />
     <BCard.Body>
-      <BCard.Title>{props.title}</BCard.Title>
+      <BCard.Title>{title}</BCard.Title>
       <BCard.Text className={styles.cardText}>
-        {props.text}
+        {text}
       </BCard.Text>
-      {props.children ? props.children : ''}
+      {children ? children : ''}
     </BCard.Body>
   </BCard>
 );

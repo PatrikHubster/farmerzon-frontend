@@ -1,9 +1,9 @@
 import { Product } from './Product';
 import styles from './Products.module.css';
 
-export const Products = (props) => (
+export const Products = ({ articles }) => (
   <div className={styles.products}>
-    {props.articles.map(product =>
+    {articles.map(product =>
       <Product name={product.name}
         price={product.price}
         description={product.description}
