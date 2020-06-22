@@ -1,4 +1,4 @@
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 export const Header = () => (
   <Navbar bg="dark" sticky="top" variant="dark">

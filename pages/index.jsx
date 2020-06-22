@@ -1,8 +1,8 @@
 import { Products } from '../components/Product/Products';
 import { Layout } from '../components/Layout/Layout';
 import { ItemCarousel } from '../components/Carousel/ItemCarousel';
-import { useQuery } from '@apollo/react-hooks';
 import { getAllArticles } from '../lib/request';
+import { client } from '../lib/apollo';
 
 const carouselItems = [
   {
@@ -26,24 +26,19 @@ const carouselItems = [
 ]
 
 const Home = () => {
-  const { loading, error, data } = useQuery(getAllArticles);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-
   return (
-    <Layout title="Farmerzon">
+    <Layout title="Farmerzon" needAuthentication={true}>
       <div>
-        <ItemCarousel data={carouselItems} />
+        <div>
+          <ItemCarousel data={carouselItems} />
+        </div>
+        <Products articles={() => 
+          client.query({
+            query: getAllArticles
+          }).then(result => result)}/>
       </div>
-      <Products articles={data.articles.map(item => ({
-        ...item,
-        id: item.articleId,
-        image: "/apfel.jpg",
-        unit: item.unit.name
-      }))} />
     </Layout>
-  )
+  );
 }
 
 export default Home;
