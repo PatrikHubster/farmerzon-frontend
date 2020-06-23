@@ -1,5 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 import { Products } from '../../components/Product/Products';
+import { connect } from 'react-redux';
+import actions from '../../lib/redux/actions';
 
 const products = [
   {
@@ -49,4 +51,4 @@ const Articles = () => (
     </Layout>
 )
 
-export default Articles;
+export default  connect(state => state, actions)(Articles);

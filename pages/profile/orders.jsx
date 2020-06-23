@@ -1,5 +1,7 @@
 import { Layout } from '../../components/Layout/Layout';
 import { Orders } from '../../components/Order/Orders';
+import { connect } from 'react-redux';
+import actions from '../../lib/redux/actions';
 
 const data = [
     {
@@ -58,4 +60,4 @@ const OrderPage = () => (
     </Layout>
 )
 
-export default OrderPage;
+export default  connect(state => state, actions)(OrderPage);
