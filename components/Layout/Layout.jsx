@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
 import actions from '../../lib/redux/actions';
+import { getCookie } from '../../lib/cookie';
 
 const MyLayout = ({ title, children, isAuthenticated, needAuthentication }) => {
+
   return (<div>
     <Head>
       <title>{title}</title>

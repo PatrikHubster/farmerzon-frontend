@@ -4,6 +4,7 @@ export const Header = () => (
   <Navbar bg="dark" sticky="top" variant="dark">
     <Navbar.Brand href="/">Farmerzon</Navbar.Brand>
     <Nav className="mr-auto">
+      <Nav.Link href="/profile/add-product">Artikel hinzufügen</Nav.Link>
       <Nav.Link href="/profile/articles">Meine Produkte</Nav.Link>
       <Nav.Link href="/profile/orders">Meine Bestellungen</Nav.Link>
     </Nav>

@@ -9,6 +9,7 @@ import { client } from '../lib/apollo';
 export default withRedux(initStore, { debug: true })(
   class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
+      console.log(ctx);
       return {
         pageProps: {
           ...(Component.getInitialProps
@@ -20,6 +21,8 @@ export default withRedux(initStore, { debug: true })(
 
     render() {
       const { Component, pageProps, store } = this.props;
+      console.log({...pageProps});
+      console.log({...store});
       return (
         <ApolloProvider client={client}>
           <Component {...pageProps} />

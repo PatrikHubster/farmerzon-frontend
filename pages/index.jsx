@@ -33,7 +33,7 @@ const Home = (props) => {
   if (error) { return "Error"; };
   console.log(data);
   return (
-    <Layout title="Farmerzon" needAuthentication={true}>
+    <Layout title="Farmerzon" needAuthentication={true} {...props}>
       <div>
         <div>
           <ItemCarousel data={carouselItems} />
