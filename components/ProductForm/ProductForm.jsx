@@ -9,7 +9,8 @@ const schema = yup.object({
   description: yup.string(),
   amount: yup.number().moreThan(0, "Mindestens 1 Stück sollte verkauft werden können").required(),
   size: yup.number().moreThan(0).required(),
-  unit: yup.string().required()
+  unit: yup.string().required(),
+  price: yup.number().required()
 });
 
 export const ProductForm = ({ handleSubmit }) => {
@@ -88,6 +89,17 @@ export const ProductForm = ({ handleSubmit }) => {
                 <Form.Control.Feedback type="invalid">
                   Bitte eine Einheit angeben
                         </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="validationFormik06">
+                <Form.Label>Preis</Form.Label>
+                <Form.Control type="number"
+                  name="Preis"
+                  value={values.price}
+                  onChange={handleChange}
+                  isInvalid={!!errors.price} />
+                <Form.Control.Feedback type="invalid">
+                  Bitte eine Preis angeben
+                </Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
             <Button type="submit">Bestätigen</Button>
