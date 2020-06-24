@@ -8,7 +8,6 @@ import actions from '../../lib/redux/actions';
 import { getCookie } from '../../lib/cookie';
 
 const MyLayout = ({ title, children, isAuthenticated, needAuthentication }) => {
-
   return (<div>
     <Head>
       <title>{title}</title>
@@ -18,12 +17,7 @@ const MyLayout = ({ title, children, isAuthenticated, needAuthentication }) => {
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
     </Head>
     <Header />
-    {isAuthenticated == true || needAuthentication == false
-      ? <div>{children}</div>
-      : <div>Nicht eingeloggt
-          <Button variant="secondary" href="/login">Login</Button>
-          <Button variant="primary" href="/register">Registrieren</Button>
-        </div>}
+    <div>{children}</div>
     <style jsx>{`
         .container {
           min-height: 100vh;
