@@ -27,6 +27,21 @@ const carouselItems = [
   },
 ]
 
+const photos = [
+  "/apfel.JPG",
+  "/apfel-rot.JPG",
+  "/baum-feld.JPG",
+  "/birnen.JPG",
+  "/erdbeeren.JPG",
+  "/gerste.JPG",
+  "/hollunder.JPG",
+  "/kohlrabi.JPG",
+  "/nuesse.JPG",
+  "/salat.JPG",
+  "/salat-bunt.JPG",
+  "/zuchini.JPG"
+];
+
 const Home = (props) => {
   const { loading, error, data } = useQuery(getAllArticles);
   if (loading) { return "Loading..."; };
@@ -42,7 +57,7 @@ const Home = (props) => {
       ...item,
       key: item.articleId,
       unit: item.unit.name,
-      image: '/apfel.JPG'
+      image: photos[Math.floor(Math.random() * 12)]
     }))} />
       </div>
     </Layout>
