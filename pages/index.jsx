@@ -1,138 +1,67 @@
 import { Products } from '../components/Product/Products';
 import { Layout } from '../components/Layout/Layout';
 import { ItemCarousel } from '../components/Carousel/ItemCarousel';
-
-const products = [
-  {
-    id: 1,
-    name: 'Tomaten',
-    description: 'einzigartig frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 2,
-    name: 'Tomaten',
-    description: 'Sehr frisch und mit ganz viel Liebe großgezogen und geerntet. Schmecken engelsgleich.',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 3,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 4,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 5,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 6,
-    name: 'Tomaten',
-    description: 'einzigartig frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 7,
-    name: 'Reis',
-    description: 'Feinster Reis aus Ang Thong',
-    price: 1,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://hips.hearstapps.com/vidthumb/images/delish-u-rice-2-1529079587.jpg"
-  },
-  {
-    id: 8,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 9,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-  {
-    id: 10,
-    name: 'Tomaten',
-    description: 'frisch',
-    price: 3.24,
-    size: 2,
-    amount: 100,
-    unit: 'kg',
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg/1024px-Organic_home-grown_tomatoes_-_unripe_to_ripe.jpg"
-  },
-];
+import { getAllArticles } from '../lib/request';
+import { connect } from 'react-redux';
+import actions from '../lib/redux/actions';
+import { useQuery } from '@apollo/react-hooks';
 
 const carouselItems = [
   {
     id: 1,
-    title: 'Diverses',
-    desc: 'Das ist bereits eine wunderbare Beschreibung',
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg"
+    title: 'Gerste',
+    desc: 'Auf unseren Feldern wächst das Getreide Österreichs.',
+    image: "/gerste.JPG"
   },
   {
     id: 3,
-    title: 'Diverses',
-    desc: 'Hier entsteht bald eine wunderbare Beschreibung',
-    image: "https://covid19.lacounty.gov/wp-content/uploads/GettyImages-1128687123-1024x683.jpg",
+    title: 'Kohlrabi',
+    desc: 'Vitamin und ballaststoffreicher Kohlrabi für eine gesunde Ernährung',
+    image: "/kohlrabi.JPG",
   },
   {
     id: 2,
-    image: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"
+    title: "Nüsse",
+    desc: "Sie bieten viele wichtige Fette und Proteine für eine gesunde Ernährung",
+    image: "/nuesse.JPG"
   },
 ]
 
-const Home = () => {
+const photos = [
+  "/apfel.JPG",
+  "/apfel-rot.JPG",
+  "/baum-feld.JPG",
+  "/birnen.JPG",
+  "/erdbeeren.JPG",
+  "/gerste.JPG",
+  "/hollunder.JPG",
+  "/kohlrabi.JPG",
+  "/nuesse.JPG",
+  "/salat.JPG",
+  "/salat-bunt.JPG",
+  "/zuchini.JPG"
+];
+
+const Home = (props) => {
+  const { loading, error, data } = useQuery(getAllArticles);
+  if (loading) { return "Loading..."; };
+  if (error) { return "Error"; };
+  console.log(data);
   return (
-    <Layout title="Farmerzon">
+    <Layout title="Farmerzon" needAuthentication={true} {...props}>
       <div>
-        <ItemCarousel data={carouselItems} />
+        <div>
+          <ItemCarousel data={carouselItems} />
+        </div>
+    <Products articles={data.articles.map(item => ({
+      ...item,
+      key: item.articleId,
+      unit: item.unit.name,
+      image: photos[Math.floor(Math.random() * 12)]
+    }))} />
       </div>
-      <Products articles={products} />
     </Layout>
-  )
+  );
 }
 
-export default Home;
+export default connect(state => state, actions)(Home);

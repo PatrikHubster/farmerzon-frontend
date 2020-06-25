@@ -1,8 +1,14 @@
-import { Header } from '../Header/Header';
 import Head from 'next/head';
 
-export const Layout = ({ title, children }) => (
-  <div>
+import { Header } from '../Header/Header';
+import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
+
+import actions from '../../lib/redux/actions';
+import { getCookie } from '../../lib/cookie';
+
+const MyLayout = ({ title, children, isAuthenticated, needAuthentication }) => {
+  return (<div>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -11,7 +17,7 @@ export const Layout = ({ title, children }) => (
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" />
     </Head>
     <Header />
-    {children}
+    <div>{children}</div>
     <style jsx>{`
         .container {
           min-height: 100vh;
@@ -163,4 +169,10 @@ export const Layout = ({ title, children }) => (
         }
       `}</style>
   </div>
-)
+)}
+
+const mapStateToProps = (state) => (
+    { isAuthenticated: !!state.authentication.token }
+);
+
+export const Layout = connect(mapStateToProps, actions)(MyLayout);

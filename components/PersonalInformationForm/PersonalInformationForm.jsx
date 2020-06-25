@@ -153,6 +153,4 @@ const PersonalInformation = ({ handleSubmit }) => {
 }
 
 
-
-
 export default PersonalInformation;
