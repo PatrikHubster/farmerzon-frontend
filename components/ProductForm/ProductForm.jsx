@@ -10,7 +10,7 @@ const schema = yup.object({
   amount: yup.number().moreThan(0, "Mindestens 1 Stück sollte verkauft werden können").required(),
   size: yup.number().moreThan(0).required(),
   unit: yup.string().required(),
-  price: yup.number().required()
+  price: yup.number().moreThan(0, "Mehr als 0€ müssen eingegeben werden.").required()
 });
 
 export const ProductForm = ({ handleSubmit }) => {
@@ -93,7 +93,7 @@ export const ProductForm = ({ handleSubmit }) => {
               <Form.Group controlId="validationFormik06">
                 <Form.Label>Preis</Form.Label>
                 <Form.Control type="number"
-                  name="Preis"
+                  name="price"
                   value={values.price}
                   onChange={handleChange}
                   isInvalid={!!errors.price} />
