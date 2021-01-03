@@ -31,6 +31,11 @@ class LoginPage extends React.Component {
       <Container>
         <Row>
           <Col>
+            <h1>Farmerzon - Login</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Form onSubmit={(e) => this.handleSubmit(e)}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
