@@ -2,9 +2,8 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-import Home from './Home';
-import Users from './Users';
-import Contact from './Contact';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
 import Navigation from './Navigation';
 
 const App = () => {
@@ -15,9 +14,8 @@ const App = () => {
           <BrowserRouter>
             <Navigation />
             <br />
-            <Route exact path='/' component={Home}/>
-            <Route path='/users' component={Users}/>
-            <Route path='/contact' component={Contact}/>
+            <Route exact path='/' component={HomePage}/>
+            <Route path='/login' component={LoginPage}/>
           </BrowserRouter>
         </div>
       </div>
