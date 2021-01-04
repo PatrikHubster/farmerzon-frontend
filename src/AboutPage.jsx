@@ -1,6 +1,7 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
 
-import daniel from "./images/daniel.jpeg";
+import daniel from "./images/daniel.jpg";
+import lukas from "./images/lukas.jpg";
 import patrik from "./images/patrik.jpeg";
 
 const AboutPage = () => {
@@ -9,22 +10,22 @@ const AboutPage = () => {
       <Row>
         <h1>What is Farmerzon all about?</h1>
         <p class="lead">
-            Farmerzon is our answer the climate crisis. It cannot be that we 
-            exploit our earth and do not think of our children.
+          Farmerzon is our answer the climate crisis. It is not an option to
+          exploit our earth and do not think of our children.
         </p>
         <p>
-            Even the ancient Romans did not work for themselves, but for the 
-            next generation. Their actions were characterized by foresight, so 
-            more than 1,000 years later we are returning to the old principles 
-            that are still important. With Farmerzon we want to achieve that 
-            farmers no longer have to fear for their income, but that they 
-            get a payment with which they can ensure high quality and sustainability. 
-            It must be enough to live on a small farm. After all, it is the farmers 
-            who secure the foundations of our lives. It must be worthwhile for 
-            us to produce food and the consumer must not dig deeper into his 
-            pocket. We want to bring the food directly from the field to the 
-            customer, make the transport routes as sustainable and cheap as 
-            possible to get money for the quality and sustainability.
+          The ancient Romans did not work for themselves, but for the next
+          generation. Their actions were characterized by foresight, so more
+          than 1,000 years later we are returning to the old principles that are
+          still important. With Farmerzon we want to achieve that farmers no
+          longer have to fear for their income, but that they get a payment with
+          which they can ensure high quality and sustainability. It must be
+          enough to live on a small farm. After all, it is the farmers who
+          secure the foundations of our lives. It must be worthwhile for us to
+          produce food and the consumer must not dig deeper into his pocket. We
+          want to bring the food directly from the field to the customer, make
+          the transport routes as sustainable and cheap as possible to get money
+          for the quality and sustainability.
         </p>
       </Row>
       <Row className="justify-content-md-center">
@@ -38,10 +39,12 @@ const AboutPage = () => {
           />
           <blockquote class="blockquote text-center">
             <p class="mb-0">
-                Only when you allow everything to be questioned you can change the world.
+              Only when you allow everything to be questioned you can change the
+              world.
             </p>
             <footer class="blockquote-footer">
-              Founder of Farmerzon <cite title="Source Title">Patrik Huber</cite>
+              Founder of Farmerzon{" "}
+              <cite title="Source Title">Patrik Huber</cite>
             </footer>
           </blockquote>
         </Col>
@@ -55,11 +58,32 @@ const AboutPage = () => {
           />
           <blockquote class="blockquote text-center">
             <p class="mb-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.
+              An effective and streamlined workflow is key to successful
+              software development.
             </p>
             <footer class="blockquote-footer">
-              Software Engineer and Entrepreneur <cite title="Source Title">Daniel Englisch</cite>
+              Software Engineer and Entrepreneur{" "}
+              <cite title="Source Title">Daniel Englisch</cite>
+            </footer>
+          </blockquote>
+        </Col>
+      </Row>
+      <Row className="justify-content-md-center">
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <Image
+            src={lukas}
+            roundedCircle
+            width={300}
+            height={300}
+            className="d-block mx-auto my-5 img-fluid w-50"
+          />
+          <blockquote class="blockquote text-center">
+            <p class="mb-0">
+              Here we need your cite Lukas ;-)
+            </p>
+            <footer class="blockquote-footer">
+              DevOps Engineer of Farmerzon{" "}
+              <cite title="Source Title">Lukas Braun</cite>
             </footer>
           </blockquote>
         </Col>

@@ -1,0 +1,4 @@
+{
+    "GRAPH_SERVER": "http://localhost:5003",
+    "AUTH_SERVER": "http://localhost:5000"
+}

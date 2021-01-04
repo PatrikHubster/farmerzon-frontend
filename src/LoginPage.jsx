@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
         <Row>
           <Col>
             <Form onSubmit={(e) => this.handleSubmit(e)}>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group controlId="formBasicUserName">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
                   name="userName"
@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
                 </Form.Text>
               </Form.Group>
               <Button variant="primary" type="submit">
-                Submit
+                Login
               </Button>
             </Form>
           </Col>
