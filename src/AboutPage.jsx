@@ -8,9 +8,9 @@ const AboutPage = () => {
   return (
     <Container>
       <Row>
-        <h1>What is Farmerzon all about?</h1>
+        <h1>About the people behind Farmerzon</h1>
         <p class="lead">
-          Farmerzon is our answer the climate crisis. It is not an option to
+          Farmerzon is our answer to the climate crisis. It is not an option to
           exploit our earth and do not think of our children.
         </p>
         <p>
@@ -79,7 +79,7 @@ const AboutPage = () => {
           />
           <blockquote class="blockquote text-center">
             <p class="mb-0">
-              Here we need your cite Lukas ;-)
+              Follow your passion and see where it gets you.
             </p>
             <footer class="blockquote-footer">
               DevOps Engineer of Farmerzon{" "}
