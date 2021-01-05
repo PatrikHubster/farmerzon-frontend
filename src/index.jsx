@@ -3,48 +3,46 @@ import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
 import AboutPage from "./AboutPage";
-import BusinessLogic from "./BusinessLogic";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import Navigation from "./Navigation";
 import RecipesPage from "./RecipesPage";
 import RegisterPage from "./RegisterPage";
 
-let GRAPH_SERVER;
-let AUTH_SERVER;
-
-function set_backend_config(file_name) {
-  fetch(file_name, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      GRAPH_SERVER = data.GRAPH_SERVER;
-      AUTH_SERVER = data.AUTH_SERVER;
-
-      console.log(GRAPH_SERVER);
-      console.log(AUTH_SERVER);
-    });
-}
-
-if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-  set_backend_config("config.json");
-} else {
-  set_backend_config("environment.php");
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      logic: new BusinessLogic()
+      baseUrlAuthentication: "",
+      baseUrlBackend: "",
+      logic: null
+    }; 
+  }
+
+  async componentDidMount() {
+    let config;
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+      config = await this.getConfig("config.json");
+    } else {
+      config = await this.getConfig("environment.php");
     }
-  } 
+    this.setState(config);
+    console.log(this.state);
+  }
+
+  async getConfig(file_name) {
+    let predefinedHeaders = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
+    return fetch(file_name, { headers: predefinedHeaders })
+      .then((response) => response.json())
+      .then((data) => ({
+          baseUrlBackend: data.GRAPH_SERVER,
+          baseUrlAuthentication: data.AUTH_SERVER,
+        }));
+  }
 
   render() {
     return (
