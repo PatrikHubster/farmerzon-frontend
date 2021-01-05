@@ -8,15 +8,14 @@ import LoginPage from "./LoginPage";
 import Navigation from "./Navigation";
 import RecipesPage from "./RecipesPage";
 import RegisterPage from "./RegisterPage";
+import AuthenticationLogic from "./AuthenticationLogic";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      baseUrlAuthentication: "",
-      baseUrlBackend: "",
-      logic: null
-    }; 
+      authenticationLogic: null,
+    };
   }
 
   async componentDidMount() {
@@ -26,8 +25,9 @@ class App extends React.Component {
     } else {
       config = await this.getConfig("environment.php");
     }
-    this.setState(config);
-    console.log(this.state);
+    this.setState({
+      authenticationLogic: new AuthenticationLogic(config.baseUrlAuthentication)
+    });
   }
 
   async getConfig(file_name) {
@@ -39,9 +39,9 @@ class App extends React.Component {
     return fetch(file_name, { headers: predefinedHeaders })
       .then((response) => response.json())
       .then((data) => ({
-          baseUrlBackend: data.GRAPH_SERVER,
-          baseUrlAuthentication: data.AUTH_SERVER,
-        }));
+        baseUrlBackend: data.GRAPH_SERVER,
+        baseUrlAuthentication: data.AUTH_SERVER,
+      }));
   }
 
   render() {
@@ -52,15 +52,21 @@ class App extends React.Component {
             <BrowserRouter>
               <Navigation />
               <br />
-              <Route exact path="/" >
+              <Route exact path="/">
                 <HomePage />
               </Route>
               <Route path="/login">
-                <LoginPage logic={this.state.logic} />
+                <LoginPage authenticationLogic={this.state.authenticationLogic} />
               </Route>
-              <Route path="/register" component={RegisterPage} />
-              <Route path="/recipes" component={RecipesPage} />
-              <Route path="/about" component={AboutPage} />
+              <Route path="/register">
+                <RegisterPage />
+              </Route>
+              <Route path="/recipes">
+                <RecipesPage />
+              </Route>
+              <Route path="/about">
+                <AboutPage />
+              </Route>
             </BrowserRouter>
           </div>
         </div>

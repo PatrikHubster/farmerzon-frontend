@@ -1,22 +1,17 @@
-import { RESTDataSource } from 'apollo-datasource-rest';
+import { RESTDataSource } from "apollo-datasource-rest";
 
 class AuthenticationLogic extends RESTDataSource {
-    constructor(props) {
-        super(props);
-        this.baseUrl = this.props.AUTH_SERVER;
-      }
-    
-      async getMovie(id) {
-        return this.get(`movies/${id}`);
-      }
-    
-      async getMostViewedMovies(limit = 10) {
-        const data = await this.get('movies', {
-          per_page: limit,
-          order_by: 'most_viewed',
-        });
-        return data.results;
-      }
+  constructor(baseUrlAuthentication) {
+    super();
+    this.baseURL = baseUrlAuthentication;
+  }
+
+  async postLogin(userName, password) {
+    return this.post(`login-user-name`, {
+      userName: userName,
+      password: password,
+    });
+  }
 }
 
 export default AuthenticationLogic;

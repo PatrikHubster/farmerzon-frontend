@@ -6,6 +6,7 @@ class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      authenticationLogic: this.props.authenticationLogic,
       userName: "",
       password: "",
     };
@@ -21,8 +22,9 @@ class LoginPage extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    console.log(this.state.userName + " " + this.state.password);
+  async handleSubmit(event) {
+    const { authenticationLogic, userName, password } = this.state;
+    console.log(await authenticationLogic.postLogin(userName, password));
     event.preventDefault();
   }
 
