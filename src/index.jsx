@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
+import { Container, Row, Spinner } from "react-bootstrap";
 
 import AboutPage from "./AboutPage";
 import HomePage from "./HomePage";
@@ -14,7 +15,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticationLogic: null,
+      baseUrlBackend: "",
+      baseUrlAuthentication: "",
+      isLoading: true,
     };
   }
 
@@ -25,8 +28,10 @@ class App extends React.Component {
     } else {
       config = await this.getConfig("environment.php");
     }
+
     this.setState({
-      authenticationLogic: new AuthenticationLogic(config.baseUrlAuthentication)
+      ...config,
+      isLoading: false,
     });
   }
 
@@ -45,6 +50,16 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <Container className="h-100">
+          <Row className="h-100 align-items-center justify-content-center">
+            <Spinner animation="border" role="status"/>
+          </Row>
+        </Container>
+      );
+    }
+
     return (
       <div>
         <div className="row">
@@ -56,7 +71,11 @@ class App extends React.Component {
                 <HomePage />
               </Route>
               <Route path="/login">
-                <LoginPage authenticationLogic={this.state.authenticationLogic} />
+                <LoginPage
+                  authenticationLogic={
+                    new AuthenticationLogic(this.state.baseUrlAuthentication)
+                  }
+                />
               </Route>
               <Route path="/register">
                 <RegisterPage />

@@ -1,16 +1,10 @@
-import { RESTDataSource } from "apollo-datasource-rest";
-
-class AuthenticationLogic extends RESTDataSource {
+class AuthenticationLogic {
   constructor(baseUrlAuthentication) {
-    super();
     this.baseURL = baseUrlAuthentication;
   }
 
-  async postLogin(userName, password) {
-    return this.post(`login-user-name`, {
-      userName: userName,
-      password: password,
-    });
+  postLogin(userName, password) {
+    console.log("AuthenticationLogic");
   }
 }
 

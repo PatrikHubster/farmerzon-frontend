@@ -53,6 +53,7 @@ class RegisterPage extends React.Component {
                   type="email"
                   placeholder="Enter Email"
                   value={this.state.email}
+                  onChange={(e) => this.handleInputChange(e)}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicUserName">

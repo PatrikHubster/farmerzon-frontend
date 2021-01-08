@@ -1,6 +1,7 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
 
 import daniel from "./images/daniel.jpg";
+import julia from "./images/julia.jpeg";
 import lukas from "./images/lukas.jpg";
 import patrik from "./images/patrik.jpeg";
 
@@ -84,6 +85,24 @@ const AboutPage = () => {
             <footer class="blockquote-footer">
               DevOps Engineer of Farmerzon{" "}
               <cite title="Source Title">Lukas Braun</cite>
+            </footer>
+          </blockquote>
+        </Col>
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <Image
+            src={julia}
+            roundedCircle
+            width={300}
+            height={300}
+            className="d-block mx-auto my-5 img-fluid w-50"
+          />
+          <blockquote class="blockquote text-center">
+            <p class="mb-0">
+              Here we need your cite.
+            </p>
+            <footer class="blockquote-footer">
+              Backend Engineer of Farmerzon{" "}
+              <cite title="Source Title">Julia Doppler</cite>
             </footer>
           </blockquote>
         </Col>
