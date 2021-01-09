@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import { Container, Row, Spinner } from "react-bootstrap";
 
 import AboutPage from "./AboutPage";
@@ -35,13 +35,15 @@ class App extends React.Component {
     });
   }
 
-  async getConfig(file_name) {
-    let predefinedHeaders = {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+  async getConfig(endpoint) {
+    let content = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     };
 
-    return fetch(file_name, { headers: predefinedHeaders })
+    return fetch(endpoint, content)
       .then((response) => response.json())
       .then((data) => ({
         baseUrlBackend: data.GRAPH_SERVER,
@@ -54,10 +56,28 @@ class App extends React.Component {
       return (
         <Container className="h-100">
           <Row className="h-100 align-items-center justify-content-center">
-            <Spinner animation="border" role="status"/>
+            <Spinner animation="grow" />
           </Row>
         </Container>
       );
+    }
+
+    let authenticatedRoutes;
+    if (
+      localStorage.getItem("token") !== null &&
+      localStorage.getItem("refreshToken") != null
+    ) {
+      authenticatedRoutes = (
+        <Route path="/recipes">
+          <RecipesPage />
+        </Route>
+      );
+    } else {
+      authenticatedRoutes = (
+        <Route path="/recipes">
+          <Redirect to="/login" />
+        </Route>
+      )
     }
 
     return (
@@ -80,9 +100,7 @@ class App extends React.Component {
               <Route path="/register">
                 <RegisterPage />
               </Route>
-              <Route path="/recipes">
-                <RecipesPage />
-              </Route>
+              {authenticatedRoutes}
               <Route path="/about">
                 <AboutPage />
               </Route>

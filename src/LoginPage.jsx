@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Col, Container, Button, Form, Row } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -23,9 +24,14 @@ class LoginPage extends React.Component {
   }
 
   async handleSubmit(event) {
-    const { authenticationLogic, userName, password } = this.state;
-    console.log(await authenticationLogic.postLogin(userName, password));
     event.preventDefault();
+    const { authenticationLogic, userName, password } = this.state;
+    let result = await authenticationLogic.postLogin(userName, password);
+    if (result === true) {
+      return (
+        <Redirect to="/"/>
+      );
+    } 
   }
 
   render() {
