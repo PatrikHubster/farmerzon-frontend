@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Col, Container, Button, Form, Row } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import { Col, Container, Button, Form, Row, Alert } from "react-bootstrap";
+import { Redirect } from 'react-router-dom';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class LoginPage extends React.Component {
       authenticationLogic: this.props.authenticationLogic,
       userName: "",
       password: "",
+      isAuthenticated: undefined,
     };
   }
 
@@ -26,15 +27,16 @@ class LoginPage extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const { authenticationLogic, userName, password } = this.state;
-    let result = await authenticationLogic.postLogin(userName, password);
-    if (result === true) {
-      return (
-        <Redirect to="/"/>
-      );
-    } 
+    this.setState({
+      isAuthenticated: await authenticationLogic.postLogin(userName, password),
+    });
   }
 
   render() {
+    if (this.state.isAuthenticated === true) {
+      return <Redirect to="/"/> 
+    }
+
     return (
       <Container>
         <Row>
@@ -42,6 +44,15 @@ class LoginPage extends React.Component {
             <h1>Farmerzon - Login</h1>
           </Col>
         </Row>
+        {this.state.isAuthenticated === false ? (
+          <Row>
+            <Col>
+              <Alert variant={"danger"}>
+                Make sure to use your correct username and password.
+              </Alert>
+            </Col>
+          </Row>
+        ) : null}
         <Row>
           <Col>
             <Form onSubmit={(e) => this.handleSubmit(e)}>
