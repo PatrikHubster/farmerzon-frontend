@@ -81,7 +81,15 @@ class App extends React.Component {
                 )}
               </Route>
               <Route path="/register">
-                {isAuthenticated ? <Redirect to="/" /> : <RegisterPage />}
+                {isAuthenticated ? (
+                  <Redirect to="/" />
+                ) : (
+                  <RegisterPage
+                    authenticationLogic={
+                      new AuthenticationLogic(this.state.baseUrlAuthentication)
+                    }
+                  />
+                )}
               </Route>
               <Route path="/recipes">
                 {isAuthenticated ? <RecipesPage /> : <Redirect to="/login" />}

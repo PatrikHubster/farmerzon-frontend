@@ -24,6 +24,31 @@ class AuthenticationLogic {
     return this.processLoginData(response);
   }
 
+  async postRegister(userName, email, password, street, doorNumber, zipCode, cityName, stateName, countryName, countryCode) {
+    let response = await this.client.post("/authentication/register", {
+      userName: userName,
+      email: email,
+      password: password,
+      address: {
+        city: {
+          zipCode: zipCode,
+          name: cityName
+        },
+        country: {
+          name: countryName,
+          code: countryCode
+        },
+        state: {
+          name: stateName
+        },
+        doorNumber: doorNumber,
+        street: street
+      }
+    });
+
+    return this.processLoginData(response);
+  }
+
   async refreshLogin(token, refreshToken) {
     let response = await this.client.post("/authentication/refresh", {
       token: localStorage.getItem("token"),

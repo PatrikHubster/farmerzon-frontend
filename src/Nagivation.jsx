@@ -29,6 +29,17 @@ const Header = (props) => {
             <Nav.Link href="/recipes">Recipes</Nav.Link>
           ) : null}
           <Nav.Link href="/about">About</Nav.Link>
+          {props.isAuthenticated ? (
+            <Nav.Link
+              onClick={() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("refreshToken");
+                window.location.href = "/";
+              }}
+            >
+              Logout
+            </Nav.Link>
+          ) : null}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
