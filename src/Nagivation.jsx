@@ -1,10 +1,20 @@
 import { withRouter } from "react-router";
-import { Navbar, Nav } from "react-bootstrap";
+import { Image, Navbar, Nav } from "react-bootstrap";
+
+import farmerzon from "./images/farmerzon.png";
 
 const Header = (props) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-      <Navbar.Brand href="/">Farmerzon</Navbar.Brand>
+      <Navbar.Brand href="/">
+        <Image
+          src={farmerzon}
+          width={30}
+          height={30}
+          className="d-inline-block align-top"
+        />{" "}
+        Farmerzon
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" activeKey={props.location.pathname}>
