@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Jumbotron, Row } from "react-bootstrap";
+import { Card, Col, Container, Jumbotron, Row } from "react-bootstrap";
 
 import barley from "./images/barley.JPG";
 import kohlrabi from "./images/kohlrabi.JPG";
@@ -33,7 +33,6 @@ const HomePage = () => {
                 Organic food doesn't have to be expensive. Farmerzon saves on itself 
                 to invest in quality.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -46,7 +45,6 @@ const HomePage = () => {
                 In only 24 hours we deliver climate neutral to your doorstep. 
                 Public transport makes it possible.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -61,7 +59,6 @@ const HomePage = () => {
                 We simply put together your meal plan for the week with you. 
                 You can cook together as a family.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -74,7 +71,6 @@ const HomePage = () => {
                 Food must taste good. We recommend only recipes that taste good 
                 to you and are also healthy. The taste must not come too short.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
