@@ -9,8 +9,12 @@ const Header = (props) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" activeKey={props.location.pathname}>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/register">Register</Nav.Link>
+          {props.isAuthenticated ? null : (
+            <Nav.Link href="/login">Login</Nav.Link>
+          )}
+          {props.isAuthenticated ? null : (
+            <Nav.Link href="/register">Register</Nav.Link>
+          )}
           {props.isAuthenticated ? (
             <Nav.Link href="/recipes">Recipes</Nav.Link>
           ) : null}

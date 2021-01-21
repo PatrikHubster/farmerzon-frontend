@@ -70,14 +70,18 @@ class App extends React.Component {
                 <HomePage />
               </Route>
               <Route path="/login">
-                <LoginPage
-                  authenticationLogic={
-                    new AuthenticationLogic(this.state.baseUrlAuthentication)
-                  }
-                />
+                {isAuthenticated ? (
+                  <Redirect to="/" />
+                ) : (
+                  <LoginPage
+                    authenticationLogic={
+                      new AuthenticationLogic(this.state.baseUrlAuthentication)
+                    }
+                  />
+                )}
               </Route>
               <Route path="/register">
-                <RegisterPage />
+                {isAuthenticated ? <Redirect to="/" /> : <RegisterPage />}
               </Route>
               <Route path="/recipes">
                 {isAuthenticated ? <RecipesPage /> : <Redirect to="/login" />}
