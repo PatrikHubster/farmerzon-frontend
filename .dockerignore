@@ -1,5 +1,3 @@
 node_modules/
-.next/
 .github/
-yarn.lock/
 README.md
