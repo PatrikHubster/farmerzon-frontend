@@ -1,4 +1,4 @@
 {
-    "GRAPH_SERVER": "https://localhost:5998",
-    "AUTH_SERVER": "https://localhost:5998"
+    "GRAPH_SERVER": "http://localhost:5003",
+    "AUTH_SERVER": "http://localhost:5000"
 }

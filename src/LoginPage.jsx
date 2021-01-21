@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Col, Container, Button, Form, Row, Alert } from "react-bootstrap";
-import { Redirect } from 'react-router-dom';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -34,7 +33,7 @@ class LoginPage extends React.Component {
 
   render() {
     if (this.state.isAuthenticated === true) {
-      return <Redirect to="/"/> 
+      window.location.href = "/";
     }
 
     return (
