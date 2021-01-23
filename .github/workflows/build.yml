@@ -33,11 +33,13 @@ jobs:
           docker buildx build \
           --platform=linux/arm64 \
           --output "type=image,push=true" \
+          --build-arg ARCHITECTURE=arm64v8/ \
           --file ./Dockerfile . \
           --tag ${DOCKER_USERNAME}/farmerzon-frontend:latest-arm64v8
           docker buildx build \
           --platform=linux/amd64 \
           --output "type=image,push=true" \
+          --build-arg ARCHITECTURE=amd64/ \
           --file ./Dockerfile . \
           --tag ${DOCKER_USERNAME}/farmerzon-frontend:latest-amd64
           docker manifest create ${DOCKER_USERNAME}/farmerzon-frontend:latest \
