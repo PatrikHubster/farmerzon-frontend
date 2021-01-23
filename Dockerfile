@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm cache clean --force
 RUN npm run build
 
 ARG ARCHITECTURE=amd64/
