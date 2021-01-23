@@ -5,8 +5,9 @@ import { Col, Container, Button, Form, Row, Alert } from "react-bootstrap";
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
+    this.authenticationLogic = this.props.authenticationLogic;
+
     this.state = {
-      authenticationLogic: this.props.authenticationLogic,
       userName: "",
       password: "",
       isAuthenticated: undefined,
@@ -25,9 +26,9 @@ class LoginPage extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const { authenticationLogic, userName, password } = this.state;
+    const { userName, password } = this.state;
     this.setState({
-      isAuthenticated: await authenticationLogic.postLogin(userName, password),
+      isAuthenticated: await this.authenticationLogic.postLogin(userName, password),
     });
   }
 

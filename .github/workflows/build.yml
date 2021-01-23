@@ -1,0 +1,46 @@
+name: FarmeronBackend CI
+
+on:
+  push:
+    branches: master
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Dockerhub login
+        env:
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: 
+          echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin
+      
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          driver-opts: env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
+
+      - name: Build Manifest
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_CLI_EXPERIMENTAL: enabled
+        run: |
+          docker buildx build \
+          --platform=linux/arm64 \
+          --output "type=image,push=true" \
+          --file ./Dockerfile . \
+          --tag ${DOCKER_USERNAME}/farmerzon-frontend:latest-arm64v8
+          docker buildx build \
+          --platform=linux/amd64 \
+          --output "type=image,push=true" \
+          --file ./Dockerfile . \
+          --tag ${DOCKER_USERNAME}/farmerzon-frontend:latest-amd64
+          docker manifest create ${DOCKER_USERNAME}/farmerzon-frontend:latest \
+          --amend ${DOCKER_USERNAME}/farmerzon-frontend:latest-amd64 \
+          --amend ${DOCKER_USERNAME}/farmerzon-frontend:latest-arm64v8
+          docker manifest push ${DOCKER_USERNAME}/farmerzon-frontend:latest

@@ -4,11 +4,13 @@ import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import AboutPage from "./AboutPage";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import ArticlesPage from "./ArticlesPage";
 import RecipesPage from "./RecipesPage";
 import RegisterPage from "./RegisterPage";
-import AuthenticationLogic from "./AuthenticationLogic";
+import AuthenticationLogic from "./logic/AuthenticationLogic";
 import LoadingScreen from "./LoadingScreen";
 import Navigation from "./Nagivation";
+import ArticlesLogic from "./logic/ArticlesLogic";
 
 class App extends React.Component {
   constructor(props) {
@@ -89,6 +91,15 @@ class App extends React.Component {
                       new AuthenticationLogic(this.state.baseUrlAuthentication)
                     }
                   />
+                )}
+              </Route>
+              <Route path="/articles">
+                {isAuthenticated ? (
+                  <ArticlesPage
+                    articlesLogic={new ArticlesLogic(this.state.baseUrlBackend)}
+                  />
+                ) : (
+                  <Redirect to="/login" />
                 )}
               </Route>
               <Route path="/recipes">

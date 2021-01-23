@@ -26,6 +26,9 @@ const Header = (props) => {
             <Nav.Link href="/register">Register</Nav.Link>
           )}
           {props.isAuthenticated ? (
+            <Nav.Link href="/articles">Articles</Nav.Link>
+          ) : null}
+          {props.isAuthenticated ? (
             <Nav.Link href="/recipes">Recipes</Nav.Link>
           ) : null}
           <Nav.Link href="/about">About</Nav.Link>
