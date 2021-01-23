@@ -1,11 +1,11 @@
-ARG ARCHITECTURE=amd64/
-FROM ${ARCHITECTURE}node:alpine as node
+FROM amd64/node:alpine as node
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
+ARG ARCHITECTURE=amd64/
 FROM ${ARCHITECTURE}alpine:3.12.3 as alpine
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/entrypoint.sh /docker-entrypoint.sh
