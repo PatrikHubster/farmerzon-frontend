@@ -26,24 +26,12 @@ class ArticlesLogic {
     });
   }
 
-  test() {
-    this.client
+  async query(query) {
+    return this.client
       .query({
-        query: gql(`query {
-        articles {
-            id
-            description
-            name
-            amount
-            size
-            createdAt
-            updatedAt
-            expirationDate
-        }
-    }`),
+        query: gql(query),
         fetchPolicy: "no-cache",
       })
-      .then((result) => console.log(result));
   }
 }
 
